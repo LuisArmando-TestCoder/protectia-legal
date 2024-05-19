@@ -1,0 +1,37 @@
+{
+	"name": "protectia-legal",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"upload": "git add -A && git commit -m \"project bones\" && git push origin main"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@types/gsap": "^3.0.0",
+		"@types/scrollmagic": "^2.0.8",
+		"saos": "^1.3.1",
+		"sass": "^1.75.0",
+		"svelte": "^4.2.7",
+		"svelte-check": "^3.6.0",
+		"tslib": "^2.4.1",
+		"typescript": "^5.0.0",
+		"vite": "^5.0.3"
+	},
+	"type": "module",
+	"dependencies": {
+		"aos": "^2.3.4",
+		"autoprefixer": "^10.4.19",
+		"gsap": "^3.12.5",
+		"postcss": "^8.4.38",
+		"scrollmagic": "^2.0.8",
+		"scrollmagic-plugin-gsap": "^1.0.4",
+		"tailwindcss": "^3.4.3"
+	}
+}

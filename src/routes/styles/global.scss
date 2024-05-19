@@ -1,0 +1,95 @@
+/* League Spartan */
+@font-face {
+  font-family: "League Spartan";
+  font-weight: bold;
+  src: url("/fonts/League_Spartan/static/LeagueSpartan-Black.ttf")
+    format("truetype");
+}
+
+/* Libre Baskervile */
+@font-face {
+  font-family: "Libre Baskervile";
+  font-weight: normal;
+  src: url("/fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf")
+    format("truetype");
+}
+
+/* Poppins */
+@font-face {
+  font-family: "Poppins Light";
+  font-weight: normal;
+  src: url("/fonts/Poppins/Poppins-Light.ttf") format("truetype");
+}
+
+:global(:root) {
+  --color-foreground: #0d0814;
+  --color-outline: #525ceb;
+  --color-highlight-1: #bfcfe7;
+  --color-background: #f8edff;
+  --color-background-highlight: #f9f1ef;
+
+  --font-title: "League Spartan", serif;
+  --font-subtitle: "Libre Baskervile", serif;
+  --font-paragraph: "Poppins Light", sans-serif;
+}
+
+// Set the width and color of the scrollbar
+:global(::-webkit-scrollbar) {
+  width: 5rem;
+}
+:global(::-webkit-scrollbar-track) {
+  background: var(--color-background);
+}
+:global(::-webkit-scrollbar-thumb) {
+  background: var(--color-background);
+  border-radius: 5rem;
+}
+:global(::-webkit-scrollbar-thumb:hover) {
+  background: var(--color-highlight-1);
+}
+
+:global(body) {
+    background: var(--color-background);
+}
+
+:global(.title) {
+  overflow: hidden;
+  height: calc(1.75 * clamp(30rem, 15vw, 130rem));
+}
+
+:global(.title h1) {
+  font-family: var(--font-title);
+  font-size: clamp(30rem, 15vw, 130rem);
+  color: var(--color-foreground);
+  position: relative;
+  top: 0;
+  transform: rotate(0deg) skew(0deg);
+  animation: come-from-bottom ease-out .75s;
+}
+
+@keyframes come-from-bottom {
+  0% {}
+}
+
+:global(h2) {
+  font-size: clamp(20rem, 5vw, 24rem);
+}
+
+:global(h2),
+:global(h3) {
+  font-family: var(--font-subtitle);
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 7rem;
+  margin-bottom: 20rem;
+  line-height: 2;
+  color: var(--color-foreground);
+}
+
+:global(p) {
+  font-family: var(--font-paragraph);
+  max-width: 450rem;
+  padding-bottom: 10rem;
+  line-height: 1.5;
+  color: var(--color-foreground);
+}
