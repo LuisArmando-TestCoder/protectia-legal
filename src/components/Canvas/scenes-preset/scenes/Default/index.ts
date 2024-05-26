@@ -16,14 +16,14 @@ import worleyNoiseWatersMaterial from "../../materials/worleyNoiseWaters";
 
 actions.addSceneSetupIntrude(
   ({ presetConfiguration, camera }: types.state.CanvasState) => {
-    presetConfiguration.ambient.color = 0x1b1b1b;
+    presetConfiguration.ambient.color = 0xe1d3c4;
     presetConfiguration.camera.cameraVectorsState.top.acceleration.x *= 5;
     presetConfiguration.camera.cameraVectorsState.top.acceleration.z *= 5;
     presetConfiguration.camera.cameraVectorsState.friction.x *= 5;
     presetConfiguration.camera.cameraVectorsState.friction.z *= 5;
     presetConfiguration.camera.cameraVectorsState.position.y = -12;
     camera?.lookAt(new THREE.Vector3(0, 60, -35));
-    camera?.setFocalLength(15);
+    camera?.setFocalLength(13);
   }
 );
 
@@ -53,16 +53,16 @@ export default (id: string) =>
             "SimpleFloor",
             "SimpleCube",
             "SimpleSphere",
-            "SimpleLightSet",
+            // "SimpleLightSet",
           ],
         });
 
         actions.blacklistControls([
-          // "setFirstPersonZoom",
+          "setFirstPersonZoom",
           "setFirstPersonPosition",
           "setFirstPersonFlying",
           "setFirstPersonDirection",
-          // "setCanvasAutoFocus",
+          "setCanvasAutoFocus",
         ]);
       },
     },

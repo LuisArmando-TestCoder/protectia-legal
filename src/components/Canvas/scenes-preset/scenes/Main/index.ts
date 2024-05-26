@@ -16,7 +16,7 @@ let figurine: THREE.Object3D;
 let light: THREE.Object3D;
 let lightRotation = 0;
 let lightDistanceFromPivot = 11;
-const lightPivot = { x: 0, z: 30 };
+const lightPivot = { x: 0, z: 60 };
 
 let tl: gsap.core.Timeline;
 
@@ -33,7 +33,7 @@ export default (id: string) =>
               -25,
               lightPivot.z * Math.cos(lightRotation) * lightDistanceFromPivot
             ),
-            color: "#fff",
+            color: "#e1d3c4",
             intensity: 1,
             distance: 500,
             decay: 10,
@@ -49,10 +49,10 @@ export default (id: string) =>
             "./models/a_goddess_statue/scene.gltf",
             (gltf: { scene: { children: THREE.Object3D[] } }) => {
               const sculpture = gltf.scene.children[0];
-              sculpture.scale.setScalar(5);
-              sculpture.position.x = 0;
-              sculpture.position.y = -53;
-              sculpture.position.z = 30;
+              sculpture.scale.setScalar(10);
+              sculpture.position.x = lightPivot.x;
+              sculpture.position.y = -94;
+              sculpture.position.z = lightPivot.z;
 
               sculpture.rotation.z = Math.PI;
 
