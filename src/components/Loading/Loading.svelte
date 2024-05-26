@@ -45,7 +45,10 @@
   });
 </script>
 
-<div bind:this={loadingElements[loadingElements.length]} class="loading-back"></div>
+<div
+  bind:this={loadingElements[loadingElements.length]}
+  class="loading-back"
+></div>
 <div bind:this={loadingElements[loadingElements.length]} class="loading">
   <h2 class="loading--title">
     {#each titleWords as titleWord}

@@ -1,7 +1,6 @@
 import * as THREE from "three";
 import presetScene, { consulters, events, type types } from "scene-preset";
 import scene from "./scene";
-import gsap from "gsap";
 
 let sceneEvents: {
   sceneGroup: THREE.Group;
@@ -15,10 +14,19 @@ import PointLightSet from "../../meshes/PointLightSet";
 let figurine: THREE.Object3D;
 let light: THREE.Object3D;
 let lightRotation = 0;
-let lightDistanceFromPivot = 11;
+let lightDistanceFromPivot = 31;
 const lightPivot = { x: 0, z: 60 };
 
-let tl: gsap.core.Timeline;
+const targetLightPositions = {
+  x: 0,
+  z: 0,
+  y: 0,
+};
+
+let targetFigurineX = 0,
+  figurineX = 0;
+
+type Axis = "x" | "y" | "z";
 
 export default (id: string) =>
   presetScene(
@@ -39,8 +47,6 @@ export default (id: string) =>
             decay: 10,
           },
         ]).children[0];
-
-        tl = gsap.timeline();
 
         const loader = new GLTFLoader();
         loader.setCrossOrigin("anonymous");
@@ -64,16 +70,21 @@ export default (id: string) =>
         });
 
         window.addEventListener("mousemove", (event: MouseEvent) => {
-          figurine.rotation.z =
-            Math.sin(event.clientX / window.innerWidth) * 2 + Math.PI * -1.25;
+          // figurine.rotation.z =
+          //   Math.sin(event.clientX / window.innerWidth) * 2 + Math.PI * -1.25;
+          targetFigurineX = event.clientX;
 
           lightRotation = (event.clientX / window.innerWidth) * Math.PI * 2;
 
-          light.position.x =
+          targetLightPositions.x =
             lightPivot.x + Math.sin(lightRotation) * lightDistanceFromPivot;
-          light.position.z =
+          targetLightPositions.z =
             lightPivot.z + Math.cos(lightRotation) * lightDistanceFromPivot;
-          light.position.y = -event.clientY / window.innerHeight * Math.PI * lightDistanceFromPivot + 5
+          targetLightPositions.y =
+            (-event.clientY / window.innerHeight) *
+              Math.PI *
+              lightDistanceFromPivot +
+            5;
         });
 
         window.addEventListener("scroll", () => {
@@ -86,6 +97,23 @@ export default (id: string) =>
       animate(canvasState: types.state.CanvasState) {
         sceneEvents?.onAnimation(canvasState);
         // figurine.rotation.z += .001;
+
+        const closeUpSpeedLight = 0.03;
+
+        Object.keys(targetLightPositions).forEach((key: string) => {
+          light.position[key as Axis] +=
+            (targetLightPositions[key as Axis] - light.position[key as Axis]) *
+            closeUpSpeedLight;
+        });
+
+        const closeUpSpeedFigurine = 0.05;
+
+        if (figurine) {
+          figurineX += (targetFigurineX - figurineX) * closeUpSpeedFigurine;
+
+          figurine.rotation.z =
+            Math.sin(figurineX / window.innerWidth) * 2 + Math.PI * -1.25;
+        }
       },
     },
     `#${id}`
