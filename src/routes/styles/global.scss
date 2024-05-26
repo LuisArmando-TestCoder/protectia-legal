@@ -1,36 +1,35 @@
-/* League Spartan */
+/* Jost Black */
 @font-face {
-  font-family: "League Spartan";
+  font-family: "Jost Black";
   font-weight: bold;
-  src: url("/fonts/League_Spartan/static/LeagueSpartan-Black.ttf")
-    format("truetype");
+  src: url("/fonts/JOST/Jost-Black.ttf") format("truetype");
 }
 
-/* Libre Baskervile */
+/* Jost */
 @font-face {
-  font-family: "Libre Baskervile";
+  font-family: "Jost";
   font-weight: normal;
-  src: url("/fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf")
-    format("truetype");
+  src: url("/fonts/JOST/Jost-Light.ttf") format("truetype");
 }
 
 /* Poppins */
 @font-face {
-  font-family: "Poppins Light";
+  font-family: "Kiona Regular";
   font-weight: normal;
-  src: url("/fonts/Poppins/Poppins-Light.ttf") format("truetype");
+  src: url("/fonts/KIONA/Kiona-Regular.ttf") format("truetype");
 }
 
 :global(:root) {
-  --color-foreground: #0d0814;
-  --color-outline: #525ceb;
-  --color-highlight-1: #bfcfe7;
-  --color-background: #f8edff;
-  --color-background-highlight: #f9f1ef;
+  --color-foreground: #1b1b1b;
+  --color-outline: #243959;
+  --color-highlight-1: #7181a3;
+  --color-highlight-2: #48505d;
+  --color-background: #f1e9e4;
+  --color-background-highlight: #e1d3c4;
 
-  --font-title: "League Spartan", serif;
-  --font-subtitle: "Libre Baskervile", serif;
-  --font-paragraph: "Poppins Light", sans-serif;
+  --font-title: "Jost Black", serif;
+  --font-subtitle: "Jost", serif;
+  --font-paragraph: "Kiona Regular", sans-serif;
 }
 
 // Set the width and color of the scrollbar
@@ -49,7 +48,7 @@
 }
 
 :global(body) {
-    background: var(--color-background);
+  background: var(--color-outline);
 }
 
 :global(.title) {
@@ -64,11 +63,6 @@
   position: relative;
   top: 0;
   transform: rotate(0deg) skew(0deg);
-  animation: come-from-bottom ease-out .75s;
-}
-
-@keyframes come-from-bottom {
-  0% {}
 }
 
 :global(h2) {
