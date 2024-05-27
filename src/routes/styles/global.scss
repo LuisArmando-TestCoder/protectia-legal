@@ -1,8 +1,8 @@
 /* Jost Black */
 @font-face {
-  font-family: "Jost Black";
+  font-family: "Jost ExtraLight";
   font-weight: bold;
-  src: url("/fonts/JOST/Jost-Black.ttf") format("truetype");
+  src: url("/fonts/JOST/Jost-ExtraLight.ttf") format("truetype");
 }
 
 /* Jost */
@@ -27,7 +27,7 @@
   --color-background: #f1e9e4;
   --color-background-highlight: #e1d3c4;
 
-  --font-title: "Jost Black", serif;
+  --font-title: "Jost ExtraLight", serif;
   --font-subtitle: "Jost", serif;
   --font-paragraph: "Kiona Regular", sans-serif;
 }
@@ -40,15 +40,16 @@
   background: var(--color-background);
 }
 :global(::-webkit-scrollbar-thumb) {
-  background: var(--color-background);
+  background: var(--color-outline);
   border-radius: 5rem;
 }
 :global(::-webkit-scrollbar-thumb:hover) {
-  background: var(--color-highlight-1);
+  background: var(--color-foreground);
 }
 
 :global(body) {
   background: var(--color-outline);
+  scroll-behavior: smooth;
 }
 
 :global(.title) {

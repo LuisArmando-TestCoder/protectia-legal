@@ -15,7 +15,8 @@ let figurine: THREE.Object3D;
 let light: THREE.Object3D;
 let lightRotation = 0;
 let lightDistanceFromPivot = 31;
-const lightPivot = { x: 0, z: 60 };
+const lightPivot = { x: 0, z: 40 };
+const figurineDistanceScale = 50;
 
 const targetLightPositions = {
   x: 0,
@@ -24,7 +25,9 @@ const targetLightPositions = {
 };
 
 let targetFigurineX = 0,
-  figurineX = 0;
+  figurineX = 0,
+  targetFigurineZ = 0,
+  figurineZ = 0;
 
 type Axis = "x" | "y" | "z";
 
@@ -88,8 +91,7 @@ export default (id: string) =>
         });
 
         window.addEventListener("scroll", () => {
-          figurine.position.z =
-            lightPivot.z + window.scrollY / window.innerHeight;
+          targetFigurineZ = window.scrollY;
         });
 
         canvasState.scene?.add(scene as THREE.Object3D, light);
@@ -106,13 +108,19 @@ export default (id: string) =>
             closeUpSpeedLight;
         });
 
-        const closeUpSpeedFigurine = 0.05;
+        const closeUpSpeedFigurine = 0.03;
 
         if (figurine) {
           figurineX += (targetFigurineX - figurineX) * closeUpSpeedFigurine;
 
           figurine.rotation.z =
             Math.sin(figurineX / window.innerWidth) * 2 + Math.PI * -1.25;
+
+          figurineZ += (targetFigurineZ - figurineZ) * closeUpSpeedFigurine;
+
+          figurine.position.z =
+            lightPivot.z +
+            (figurineZ / document.body.clientHeight) * figurineDistanceScale;
         }
       },
     },

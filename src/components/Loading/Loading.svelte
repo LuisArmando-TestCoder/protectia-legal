@@ -91,6 +91,7 @@
     bottom: 0;
     background: var(--color-outline);
     pointer-events: none;
+    z-index: 3;
   }
   .loading {
     pointer-events: none;
@@ -107,6 +108,7 @@
     padding: 50rem;
     filter: blur(5rem);
     mix-blend-mode: color-dodge;
+    z-index: 3;
 
     &--title {
       color: var(--color-background);
