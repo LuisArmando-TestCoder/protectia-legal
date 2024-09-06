@@ -16,7 +16,7 @@ import worleyNoiseWatersMaterial from "../../materials/worleyNoiseWaters";
 
 actions.addSceneSetupIntrude(
   ({ presetConfiguration, camera }: types.state.CanvasState) => {
-    presetConfiguration.ambient.color = 0x7181a3;
+    presetConfiguration.ambient.color = 0xe1d3c4;
     presetConfiguration.camera.cameraVectorsState.top.acceleration.x *= 5;
     presetConfiguration.camera.cameraVectorsState.top.acceleration.z *= 5;
     presetConfiguration.camera.cameraVectorsState.friction.x *= 5;

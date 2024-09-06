@@ -11,34 +11,39 @@
       .split(" ");
 
   onMount(() => {
+    const timeAccelerator = Number(sessionStorage.getItem('timeAccelerator')) || 1;
+
+    sessionStorage.setItem('timeAccelerator', '0.5');
+
+
     const tl1 = gsap.timeline();
     tl1.to(titleElements.reverse(), {
-      delay: 1.2,
-      duration: 0.6,
-      stagger: 0.125,
+      delay: 1.2 * timeAccelerator,
+      duration: 0.6 * timeAccelerator,
+      stagger: 0.125 * timeAccelerator,
       color: "#24395900",
     });
 
     const tl2 = gsap.timeline();
     tl2
       .to(subtitleElements, {
-        delay: 0.6,
-        duration: 0.6,
-        stagger: 0.125 / 4,
+        delay: 0.6 * timeAccelerator,
+        duration: 0.6 * timeAccelerator,
+        stagger: 0.125 / 4 * timeAccelerator,
         color: "#fff",
       })
       .from(subtitleElements, {
-        duration: 1.2,
-        stagger: 0.125 / 4,
+        duration: 1.2 * timeAccelerator,
+        stagger: 0.125 / 4 * timeAccelerator,
         color: "#243959",
       });
 
-    tl2.to(loadingElements, { duration: 1, opacity: 0 }, "-=2.1");
+    tl2.to(loadingElements, { duration: 1 * timeAccelerator, opacity: 0 }, "-=" + 2.1 * timeAccelerator);
 
     const tl3 = gsap.timeline();
 
     tl3.to(loadingElements[1], {
-      duration: 1.2,
+      duration: 1.2 * timeAccelerator,
       filter: "blur(0rem)",
       background: "#1b1b1b",
     });

@@ -1,7 +1,7 @@
 <a class="hero-home-anchor" href="/#">
   <img
     class="hero-logo"
-    src="./Logos/SVG/BEIGE BG brand mark.svg"
+    src="./Logos/SVG/main logo.svg"
     alt="brand mark"
   />
 </a>
@@ -12,10 +12,16 @@
     top: 0;
     left: 0;
     cursor: pointer;
+
+    @media screen and (max-width: 1024px) {
+      visibility: hidden;
+    }
   }
 
   .hero-logo {
-    width: clamp(100rem, 30vw, 200rem);
+    top: calc(clamp(200rem, 50vw, 300rem)* -.25);
+    width: clamp(200rem, 50vw, 300rem);
+    position: absolute;
     object-fit: contain;
     object-position: center;
   }
