@@ -16,13 +16,13 @@
       backgroundImage={images[Object.keys(services).indexOf(service)]}
     >
       <!-- svelte-ignore a11y-no-static-element-interactions -->
-      <ul>
+      <ol class="services--list">
         {#each subservices as subservice}
           <li>
             {subservice}
           </li>
         {/each}
-      </ul>
+      </ol>
     </ServiceSection>
   {/each}
   <!-- <button
@@ -47,6 +47,11 @@
     width: 100vw;
     overflow-y: hidden;
     overflow-x: auto;
+
+    &--list {
+      margin: 0;
+      padding: 0 25px;
+    }
 
     @media screen and (max-width: 1024px) {
       width: 100vw;

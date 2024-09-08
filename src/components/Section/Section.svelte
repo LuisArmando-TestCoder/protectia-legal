@@ -50,7 +50,7 @@
 
       .section--bg {
         background-size: 110%;
-        transform: scale(1.125);
+        transform: scale(1.125) skew(2deg);
         filter: brightness(.125);
       }
     }

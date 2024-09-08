@@ -19,10 +19,6 @@
     right: calc(var(--ham-size) * 4);
 
     @media screen and (max-width: 1024px) {
-      left: var(--ham-size);
-    }
-
-    @media screen and (max-width: 720px) {
       visibility: hidden;
     }
   }

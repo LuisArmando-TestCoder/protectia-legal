@@ -12,10 +12,6 @@
     top: 0;
     left: 0;
     cursor: pointer;
-
-    @media screen and (max-width: 1024px) {
-      visibility: hidden;
-    }
   }
 
   .hero-logo {

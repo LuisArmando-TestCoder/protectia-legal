@@ -4,6 +4,7 @@
   import Button from '../Schedule/Schedule.svelte';
   import { services } from "../../components/data/services";
   import { externals } from "../../components/data/externals";
+  import { playTick } from "../audioInteractions";
 
   let inputElement: HTMLInputElement;
   let isChecked: boolean;
@@ -14,20 +15,6 @@
     const tl = gsap.timeline();
 
     // tl[isChecked ? 'to' : 'from'](items, { left: 100 * +isChecked, duration: 0.5, stagger: 0.125 });
-  }
-
-  function playTick() {
-    var audio = document.createElement("audio");
-
-    // Set the crossOrigin attribute to 'anonymous'
-    audio.crossOrigin = "anonymous";
-
-    // Set the source of the audio element
-    audio.src = "./SFX/tick2.mp3";
-
-    audio.play();
-
-    audio.remove();
   }
 
   onMount(() => {

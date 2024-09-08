@@ -170,7 +170,7 @@
       }
 
       &.true {
-        & .section--content {
+        .section--content {
           width: 375rem;
           padding-left: 100rem;
         }

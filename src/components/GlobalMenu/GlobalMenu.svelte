@@ -31,6 +31,11 @@
     justify-content: center;
     z-index: 2;
     height: calc(var(--ham-size) * 3);
+    box-shadow: inset 0 100rem 100rem -50rem var(--color-foreground);
+
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
 
     &--anchor {
       --diameter: 15rem;
@@ -43,7 +48,7 @@
       margin: 10rem;
       transform: scale(1);
       transition: var(--transition-shortest-duration);
-      box-shadow: 0 0 0rem var(--color-background);
+      box-shadow: 0 0 0 var(--color-background);
 
       &:hover {
         transform: scale(1.5);
