@@ -1,9 +1,13 @@
 <script lang="ts">
+  import StripePayment from "../StripePayment/StripePayment.svelte";
+
   export let text: string;
   export let theme: "light" | "dark" | "official" = "light";
   export let onClick: () => void = () => {};
 </script>
 
+
+<!-- <StripePayment showModal={} /> -->
 <button
   class="button {theme}"
   on:click={() => {

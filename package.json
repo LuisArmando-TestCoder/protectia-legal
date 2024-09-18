@@ -29,6 +29,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@stripe/stripe-js": "^4.4.0",
 		"aos": "^2.3.4",
 		"autoprefixer": "^10.4.19",
 		"canvas-preset": "^3.3.5",

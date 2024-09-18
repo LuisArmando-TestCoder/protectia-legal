@@ -4,7 +4,7 @@ export const externals = {
     "https://aissfa.ccss.sa.cr/afiliacion/valdocDigitales/index.xhtml",
   "No Cotizantes CCSS":
     "https://aissfa.ccss.sa.cr/afiliacion/trabajador/noCotizante/index.xhtml",
-  "Calculadora de CCSS": "https://www.ccss.sa.cr/calculadora",
+  "CCSS": "https://www.ccss.sa.cr/",
   "Morosidad a FODESAF":
     "https://www.fodesaf.go.cr/gestion_de_cobros/Consulta_patronos_morosos.html",
   "Consulta Patronos Morosos IMAS":
@@ -16,11 +16,11 @@ export const externals = {
     "https://www.centraldirecto.fi.cr/spa/Bccr.Rbf.Ciudadano.ConsultaBasica.SPA/#/inicio",
   "Calculadora Laboral":
     "https://www.mtss.go.cr/tramites-servicios/calculadoras.html",
-  Tributaria: "https://www.mtss.go.cr/tramites-servicios/calculadoras.html",
+  "Tributaria": "https://atv.hacienda.go.cr/ATV/Login.aspx",
   "Registro Nacional": "https://www.rnpdigital.com/shopping/login.jspx",
   "Tribunal Supremo": "https://servicioselectorales.tse.go.cr/chc/menu.htm",
   "Marchamos en el INS": "https://marchamo.ins-cr.com/Marchamo/Inicio.aspx",
-  Agremiados: "https://www.abogados.or.cr/consultaagremiados/",
+  "Agremiados": "https://www.abogados.or.cr/consultaagremiados/",
   "Denuncias a La Comisión Nacional del Consumidor":
     "https://www.consumo.go.cr/tramites_servicios/denuncias.aspx",
   "Procedimiento de protección de derechos en la PRODHAB":
