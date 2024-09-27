@@ -1,12 +1,21 @@
 <script lang="ts">
   import Button from "../Schedule/Schedule.svelte";
   import HomeAnchor from "../HomeAnchor/HomeAnchor.svelte";
-  import Menu from "../MenuHalf/Menu.svelte";
+  import Menu from "../MenuHalf/MenuHalf.svelte";
+  import { componentState } from "../../store";
 </script>
 
 <header class="header">
   <div class="schedule">
-    <Button text="AGENDAR CITA"/>
+    <Button
+      text="AGENDAR CITA"
+      onClick={() => {
+        componentState.update((state) => ({
+          id: 1,
+          isOpen: true,
+        }));
+      }}
+    />
   </div>
   <HomeAnchor />
   <Menu />

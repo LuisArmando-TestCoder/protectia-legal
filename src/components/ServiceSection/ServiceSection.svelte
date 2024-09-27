@@ -22,14 +22,15 @@
   }
 
   onMount(() => {
-    const getId = () => decodeURLEncodedToUTF8(window.location.hash)?.replace('#', '');
+    const getId = () =>
+      decodeURLEncodedToUTF8(window.location.hash)?.replace("#", "");
 
     isOpen = getId() == id;
 
     window.addEventListener("click", () => {
       setTimeout(() => {
         isOpen = getId() == id;
-      })
+      });
     });
   });
 </script>
@@ -160,6 +161,10 @@
           transform: scale(1.125);
           filter: brightness(0.125);
         }
+
+        .section--content {
+          width: 225rem;
+        }
       }
 
       &:first-child {
@@ -171,7 +176,7 @@
 
       &.true {
         .section--content {
-          width: 375rem;
+          width: 500rem !important;
           padding-left: 100rem;
         }
       }

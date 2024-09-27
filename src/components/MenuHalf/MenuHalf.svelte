@@ -1,19 +1,19 @@
 <script lang="ts">
-  import gsap from "gsap";
   import { onMount } from "svelte";
-  import Button from '../Schedule/Schedule.svelte';
-  import { services } from "../../components/data/services";
-  import { externals } from "../../components/data/externals";
+  import { componentState } from "../../store";
+  // import gsap from "gsap";
+  import Button from "../Schedule/Schedule.svelte";
+  import { services } from "../data/services";
+  import { externals } from "../data/externals";
   import { playTick } from "../audioInteractions";
+  import X from "../X/X.svelte";
 
-  let inputElement: HTMLInputElement;
   let isChecked: boolean;
   let isSwitched: boolean;
   const items: HTMLElement[] = [];
 
   function triggerItemsAnimation() {
-    const tl = gsap.timeline();
-
+    // const tl = gsap.timeline();
     // tl[isChecked ? 'to' : 'from'](items, { left: 100 * +isChecked, duration: 0.5, stagger: 0.125 });
   }
 
@@ -36,6 +36,8 @@
       });
     });
   });
+
+  let isModalOpen = true;
 </script>
 
 <div class="menu {isChecked ? 'open' : 'closed'}">
@@ -97,12 +99,15 @@
         <b class="menu--title">Contáctenos</b>
         <ul class="menu--list">
           <li class="menu--sub-list-item">
-            <a bind:this={items[items.length]} class="menu--sub-anchor menu--anchor" href="tel:+50688888888"
-              >(+506) 8888-8888</a
+            <a
+              bind:this={items[items.length]}
+              class="menu--sub-anchor menu--anchor"
+              href="tel:+50688888888">(+506) 8888-8888</a
             >
           </li>
           <li class="menu--sub-list-item">
-            <a bind:this={items[items.length]}
+            <a
+              bind:this={items[items.length]}
               class="menu--sub-anchor menu--anchor"
               href="mailto:correo@correo.com">correo@correo.com</a
             >
@@ -111,32 +116,46 @@
       </li>
 
       <li bind:this={items[items.length]} class="menu--list-item">
-        <Button text="AGENDAR CITA" theme="dark"/> 
+        <Button
+          text="AGENDAR CITA"
+          theme="dark"
+          onClick={() => {
+            componentState.update((state) => ({
+              id: 1,
+              isOpen: true,
+            }));
+          }}
+        />
       </li>
 
       <li class="menu--list-item">
-        <a bind:this={items[items.length]}
+        <a
+          bind:this={items[items.length]}
           class="menu--sub-anchor menu--anchor"
-          href="./TÉRMINOS Y CONDICIONES DE USO DEL SITIO WEB Y CONTRATACIONDESERVICIOSPROTECTIALEGAL.pdf" target="_blank">Términos y condiciones</a
+          href="./TÉRMINOS Y CONDICIONES DE USO DEL SITIO WEB Y CONTRATACIONDESERVICIOSPROTECTIALEGAL.pdf"
+          target="_blank">Términos y condiciones</a
         >
       </li>
     </ul>
   </nav>
 </div>
 
-<input
-  on:change={triggerItemsAnimation}
-  bind:this={inputElement}
-  bind:checked={isChecked}
-  class="two-line-to-x-ham-trigger"
-  type="checkbox"
-/>
+<div class="menu-x">
+  <X trigger={(ic) => (isChecked = !ic)} />
+</div>
 
 <style lang="scss">
+  .menu-x {
+    position: fixed;
+    top: var(--ham-size);
+    right: var(--ham-size);
+    z-index: 2;
+  }
+
   .menu {
     clip-path: inset(0 0 0 0);
     width: min(540rem, 100vw);
-    height: calc(100vh - calc(var(--ham-size) * 2.5) * 2);
+    height: 100vh;
     overflow: auto;
     top: 0;
     right: 0;
@@ -201,7 +220,7 @@
       &:hover,
       &:focus,
       :not(.not-anchor) {
-        letter-spacing: .5rem;
+        letter-spacing: 0.5rem;
 
         &::before {
           content: ">";
@@ -270,72 +289,6 @@
       //   transform: scale(0.75);
       filter: blur(100rem);
       pointer-events: none;
-    }
-  }
-
-  input[type="checkbox"].two-line-to-x-ham-trigger {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    cursor: pointer;
-    margin: auto;
-    background: transparent;
-    border: 0;
-    width: calc(var(--ham-size) * 1.35);
-    height: calc(var(--ham-size) * 1.1);
-    outline: none;
-
-    position: fixed;
-    top: var(--ham-size);
-    right: var(--ham-size);
-    z-index: 2;
-
-    &:after,
-    &:before {
-      content: "";
-      width: var(--ham-size);
-      height: calc(var(--ham-size) * 0.05);
-      background: var(--color-background);
-      mix-blend-mode: difference;
-      display: block;
-      position: absolute;
-      transition: 0.3s;
-      border-radius: 50rem;
-    }
-
-    &:after {
-      top: calc(var(--ham-size) * 0.4);
-    }
-
-    &:before {
-      top: calc(var(--ham-size) * 0.6);
-    }
-
-    &:checked {
-      cursor: pointer;
-
-      &:before {
-        transform: rotate(-45deg);
-      }
-
-      &:after {
-        transform: rotate(45deg);
-      }
-
-      &:after,
-      &:before {
-        top: calc(var(--ham-size) * 0.5);
-        background: var(--color-foreground);
-      }
-    }
-
-    &:active {
-      cursor: pointer;
-
-      &:after,
-      &:before {
-        transform: rotate(0deg);
-      }
     }
   }
 </style>

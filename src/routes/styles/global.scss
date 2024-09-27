@@ -31,7 +31,7 @@
   --color-outline: #243959;
   --color-highlight-1: #7181a3;
   --color-highlight-2: #48505d;
-  --color-background: white; // #f1e9e4
+  --color-background: rgb(244, 244, 244); // #f1e9e4
   --color-background-highlight: #e1d3c4;
 
   --font-title: "Kiona Regular", serif;
@@ -67,6 +67,7 @@
 
 :global(*) {
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 :global(.title) {
@@ -100,7 +101,6 @@
 
 :global(p) {
   font-family: var(--font-paragraph);
-  max-width: 450rem;
   padding-bottom: 10rem;
   line-height: 1.5;
   color: var(--color-foreground);
