@@ -8,7 +8,7 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"upload": "git add -A && git commit -m \"project bones\" && git push origin main"
+		"upload": "git add -A && git commit -m \"project updates new payment\" && git push origin main"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
