@@ -40,9 +40,30 @@
 
 <div class="map" id="map"></div>
 
-<style>
+<a class="location" href="https://waze.com/ul/hd1u0v47u3" target="_blank">
+  <p class="location">
+    100 Oeste de la Rotonda Santa Verde, La Aurora, Heredia, Casa 14-B esquinera
+  </p>
+
+  <img class="location--image" src="./icons/waze.svg" alt="" srcset="" />Usa
+  Waze para llegar a Protectia Legal
+</a>
+
+<style lang="scss">
   .map {
     height: 100%;
     width: 100%;
+  }
+
+  .location {
+    color: var(--color-background);
+
+    &--image {
+      display: inline-block;
+      width: 30rem;
+      margin-right: 5rem;
+      position: relative;
+      top: 10rem;
+    }
   }
 </style>

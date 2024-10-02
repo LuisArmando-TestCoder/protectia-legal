@@ -100,15 +100,14 @@
       transition: all 0.3s ease; /* Smooth transition */
 
       &:hover {
-        color: var(--color-foreground);
+        background: var(--color-outline);
+        color: var(--color-background);
+        transition: var(--transition-shortest-duration);
       }
 
       &:active {
-        transition: var(--transition-shortest-duration);
-        background: var(--color-outline);
-        color: var(--color-background);
-        box-shadow: 0 6rem 12rem; /* Deeper shadow on hover */
-      }
+        box-shadow: 0 3.5rem 14rem -7rem var(--color-outline); /* Subtle shadow */
+    }
 
       transition: var(--transition-short-duration);
       opacity: 1;
